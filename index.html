@@ -1,253 +1,26 @@
 <!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emes Cebete - GAS Based Test</title>
-    <link rel="icon" type="image/x-icon" href="https://i.imgur.com/fSgy6MI.png">
+    <title>Emes Cebete - GAS Based Test System</title>
+    <link rel="icon" href="https://i.imgur.com/fSgy6MI.png">
     <style>
-        * {
+        body, html {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body, html {
             height: 100%;
             width: 100%;
             overflow: hidden;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
         }
-        
-        .container {
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .header {
-            background: linear-gradient(to right, #2c3e50, #4a6491);
-            padding: 12px 25px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            color: white;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .logo-img {
-            height: 40px;
-            width: auto;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-        
-        .logo-text {
-            font-size: 22px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 20px;
-        }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 8px 15px;
-            border-radius: 4px;
-            transition: background 0.3s;
-        }
-        
-        .nav-links a:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-        
-        .content {
-            flex: 1;
-            width: 100%;
-            height: calc(100vh - 70px);
-            position: relative;
-        }
-        
         iframe {
             width: 100%;
             height: 100%;
             border: none;
         }
-        
-        .loading {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-            flex-direction: column;
-            gap: 20px;
-            background: white;
-        }
-        
-        .spinner {
-            border: 5px solid rgba(0, 0, 0, 0.1);
-            border-left-color: #4285f4;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-        }
-        
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-        
-        .loading-text {
-            color: #444;
-            font-size: 18px;
-            font-weight: 500;
-        }
-        
-        .progress-bar {
-            width: 200px;
-            height: 4px;
-            background: #e0e0e0;
-            border-radius: 2px;
-            overflow: hidden;
-        }
-        
-        .progress {
-            height: 100%;
-            width: 0%;
-            background: #4285f4;
-            animation: progress 2s infinite;
-        }
-        
-        @keyframes progress {
-            0% { width: 0%; }
-            50% { width: 70%; }
-            100% { width: 100%; }
-        }
-        
-        .footer {
-            background: #2c3e50;
-            padding: 12px 25px;
-            text-align: center;
-            font-size: 14px;
-            color: #ecf0f1;
-            border-top: 1px solid #34495e;
-        }
-        
-        .footer a {
-            color: #3498db;
-            text-decoration: none;
-        }
-        
-        .footer a:hover {
-            text-decoration: underline;
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .header {
-                padding: 10px 15px;
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .logo-text {
-                font-size: 18px;
-            }
-            
-            .nav-links {
-                gap: 10px;
-            }
-            
-            .nav-links a {
-                padding: 6px 12px;
-                font-size: 14px;
-            }
-            
-            .logo-img {
-                height: 35px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .logo-text {
-                font-size: 16px;
-            }
-            
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="logo">
-                <img src="https://i.imgur.com/fSgy6MI.png" alt="App Logo" class="logo-img">
-                <div class="logo-text">My Application</div>
-            </div>
-            <div class="nav-links">
-                <a href="#">Home</a>
-                <a href="#">About</a>
-                <a href="#">Contact</a>
-            </div>
-        </div>
-        
-        <div class="content">
-            <div id="loading" class="loading">
-                <div class="spinner"></div>
-                <div class="loading-text">Loading Application...</div>
-                <div class="progress-bar">
-                    <div class="progress"></div>
-                </div>
-            </div>
-            <iframe id="appFrame" src="https://script.google.com/macros/s/AKfycbxEJw6vFoqMda499-G9DRTFCohYRTGf76WtdPYtpq9eMbpcEiI_-NJSe_mChxh8pnjm/exec" style="display:none;"></iframe>
-        </div>
-        
-        <div class="footer">
-            &copy; 2023 My Application. All rights reserved. | 
-            <a href="#">Privacy Policy</a> | 
-            <a href="#">Terms of Service</a>
-        </div>
-    </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const iframe = document.getElementById('appFrame');
-            const loading = document.getElementById('loading');
-            
-            iframe.onload = function() {
-                // Simulate a slight delay for a smoother transition
-                setTimeout(function() {
-                    loading.style.display = 'none';
-                    iframe.style.display = 'block';
-                }, 500);
-            };
-            
-            // Fallback: hide loading after 10 seconds
-            setTimeout(function() {
-                loading.style.display = 'none';
-                iframe.style.display = 'block';
-            }, 10000);
-        });
-    </script>
+    <iframe src="https://script.google.com/macros/s/AKfycbxEJw6vFoqMda499-G9DRTFCohYRTGf76WtdPYtpq9eMbpcEiI_-NJSe_mChxh8pnjm/exec"></iframe>
 </body>
 </html>
