@@ -12,324 +12,241 @@
             box-sizing: border-box;
         }
         
-        body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background: #ffffff;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 0;
-            color: #1a1a1a;
-        }
-        
-        .header {
-            text-align: center;
-            margin: 40px 0 30px 0;
-            padding: 0 20px;
-        }
-        
-        .logo {
-            width: 70px;
-            height: 70px;
-            margin-bottom: 20px;
-            border-radius: 16px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-        }
-        
-        .title {
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            background: linear-gradient(135deg, #1a1a1a 0%, #404040 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .subtitle {
-            font-size: 1.1rem;
-            color: #666;
-            margin-bottom: 4px;
-            font-weight: 400;
-        }
-        
-        .tagline {
-            font-size: 0.9rem;
-            color: #888;
-            margin-top: 8px;
+        body, html {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
         }
         
         .container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
             width: 100%;
-            max-width: 1400px;
-            background: #fafafa;
-            border-radius: 0;
-            box-shadow: none;
-            overflow: hidden;
-            margin-bottom: 0;
-            border-top: 1px solid #eaeaea;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         }
         
-        .iframe-container {
+        .header {
+            background: linear-gradient(to right, #2c3e50, #4a6491);
+            padding: 12px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            color: white;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-img {
+            height: 40px;
+            width: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .logo-text {
+            font-size: 22px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+        
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .content {
+            flex: 1;
+            width: 100%;
+            height: calc(100vh - 70px);
             position: relative;
-            width: 100%;
-            height: 85vh;
-            min-height: 700px;
-            background: #fff;
         }
         
-        .iframe-container iframe {
+        iframe {
             width: 100%;
             height: 100%;
             border: none;
-            border-radius: 0;
         }
         
         .loading {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            color: #666;
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-        }
-        
-        .loading-spinner {
-            width: 32px;
-            height: 32px;
-            border: 3px solid #f3f3f3;
-            border-top: 3px solid #1a1a1a;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 15px;
-        }
-        
-        .info-section {
-            background: #fff;
-            padding: 40px 20px;
-            border-top: 1px solid #eaeaea;
-        }
-        
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            flex-direction: column;
             gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
+            background: white;
         }
         
-        .info-card {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 12px;
-            border-left: 4px solid #1a1a1a;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        
-        .info-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-        }
-        
-        .info-card h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: #1a1a1a;
-        }
-        
-        .info-card p {
-            font-size: 0.9rem;
-            color: #666;
-            line-height: 1.5;
-        }
-        
-        .footer {
-            text-align: center;
-            color: #888;
-            margin: 30px 0;
-            padding: 0 20px;
-            font-size: 0.85rem;
+        .spinner {
+            border: 5px solid rgba(0, 0, 0, 0.1);
+            border-left-color: #4285f4;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
         }
         
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .iframe-container {
-                height: 80vh;
-                min-height: 600px;
+            to {
+                transform: rotate(360deg);
             }
         }
         
+        .loading-text {
+            color: #444;
+            font-size: 18px;
+            font-weight: 500;
+        }
+        
+        .progress-bar {
+            width: 200px;
+            height: 4px;
+            background: #e0e0e0;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            width: 0%;
+            background: #4285f4;
+            animation: progress 2s infinite;
+        }
+        
+        @keyframes progress {
+            0% { width: 0%; }
+            50% { width: 70%; }
+            100% { width: 100%; }
+        }
+        
+        .footer {
+            background: #2c3e50;
+            padding: 12px 25px;
+            text-align: center;
+            font-size: 14px;
+            color: #ecf0f1;
+            border-top: 1px solid #34495e;
+        }
+        
+        .footer a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive adjustments */
         @media (max-width: 768px) {
             .header {
-                margin: 30px 0 20px 0;
+                padding: 10px 15px;
+                flex-direction: column;
+                gap: 10px;
             }
             
-            .title {
-                font-size: 1.8rem;
+            .logo-text {
+                font-size: 18px;
             }
             
-            .subtitle {
-                font-size: 1rem;
+            .nav-links {
+                gap: 10px;
             }
             
-            .iframe-container {
-                height: 75vh;
-                min-height: 500px;
+            .nav-links a {
+                padding: 6px 12px;
+                font-size: 14px;
             }
             
-            .info-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-            
-            .info-section {
-                padding: 30px 15px;
+            .logo-img {
+                height: 35px;
             }
         }
         
         @media (max-width: 480px) {
-            .header {
-                margin: 20px 0 15px 0;
+            .logo-text {
+                font-size: 16px;
             }
             
-            .title {
-                font-size: 1.6rem;
-            }
-            
-            .logo {
-                width: 60px;
-                height: 60px;
-            }
-            
-            .iframe-container {
-                height: 70vh;
-                min-height: 400px;
-            }
-            
-            .info-card {
-                padding: 20px;
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
             }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <img src="https://i.imgur.com/fSgy6MI.png" alt="GAS Based Test Logo" class="logo">
-        <h1 class="title">Emes Cebete</h1>
-        <p class="subtitle">Google App Scripts Based Test</p>
-        <p class="tagline">Professional • Secure • Efficient</p>
-    </div>
-     
-    <div class="info-section">
-        <div class="info-grid">
-            <div class="info-card">
-                <h3>🎯 Advanced Assessment</h3>
-                <p>Sistem ujian digital dengan randomisasi soal dan opsi jawaban untuk memastikan integritas assessment.</p>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <img src="https://i.imgur.com/fSgy6MI.png" alt="App Logo" class="logo-img">
+                <div class="logo-text">My Application</div>
             </div>
-            <div class="info-card">
-                <h3>📊 Real-time Analytics</h3>
-                <p>Monitor hasil assessment secara real-time dengan laporan detail dan analisis performa peserta.</p>
-            </div>
-            <div class="info-card">
-                <h3>🔐 Secure Platform</h3>
-                <p>Platform assessment yang aman dengan sistem timer, auto-submit, dan proteksi integritas ujian.</p>
-            </div>
-            <div class="info-card">
-                <h3>📱 Multi-device Ready</h3>
-                <p>Akses assessment dari berbagai perangkat dengan interface yang optimal di desktop, tablet, dan mobile.</p>
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
             </div>
         </div>
-    </div>
-        <div class="container">
-        <div class="iframe-container">
-            <div class="loading">
-                <div class="loading-spinner"></div>
-                <p>Initializing Assessment System...</p>
+        
+        <div class="content">
+            <div id="loading" class="loading">
+                <div class="spinner"></div>
+                <div class="loading-text">Loading Application...</div>
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
             </div>
-            <iframe 
-                src="https://script.google.com/macros/s/AKfycbxEJw6vFoqMda499-G9DRTFCohYRTGf76WtdPYtpq9eMbpcEiI_-NJSe_mChxh8pnjm/exec"
-                id="assessmentIframe"
-                allow="camera; microphone; fullscreen"
-                onload="hideLoading()">
-            </iframe>
+            <iframe id="appFrame" src="https://script.google.com/macros/s/AKfycbxEJw6vFoqMda499-G9DRTFCohYRTGf76WtdPYtpq9eMbpcEiI_-NJSe_mChxh8pnjm/exec" style="display:none;"></iframe>
         </div>
-    </div>
-    <div class="footer">
-        <p>&copy; 2025 Emes Cebete | Developed by MAHFUD SIDIK</p>
+        
+        <div class="footer">
+            &copy; 2023 My Application. All rights reserved. | 
+            <a href="#">Privacy Policy</a> | 
+            <a href="#">Terms of Service</a>
+        </div>
     </div>
 
     <script>
-        function hideLoading() {
-            const loading = document.querySelector('.loading');
-            if (loading) {
-                loading.style.display = 'none';
-            }
-        }
-        
-        // Handle iframe loading errors
-        document.getElementById('assessmentIframe').addEventListener('error', function() {
-            const loading = document.querySelector('.loading');
-            if (loading) {
-                loading.innerHTML = `
-                    <div style="color: #dc2626; font-size: 2.5rem; margin-bottom: 15px;">⚠️</div>
-                    <h3 style="margin-bottom: 10px; color: #1a1a1a;">System Initialization Failed</h3>
-                    <p style="margin-bottom: 15px; color: #666;">Unable to load assessment system. Please try refreshing the page.</p>
-                    <button onclick="window.location.reload()" style="
-                        background: #1a1a1a;
-                        color: white;
-                        border: none;
-                        padding: 10px 24px;
-                        border-radius: 6px;
-                        cursor: pointer;
-                        font-size: 0.9rem;
-                        transition: background 0.2s ease;
-                    " onmouseover="this.style.background='#404040'" 
-                      onmouseout="this.style.background='#1a1a1a'">
-                        Retry Initialization
-                    </button>
-                `;
-            }
-        });
-        
-        // Auto-adjust iframe height based on viewport
-        function adjustIframeHeight() {
-            const container = document.querySelector('.iframe-container');
-            const headerHeight = document.querySelector('.header').offsetHeight;
-            const viewportHeight = window.innerHeight;
+        document.addEventListener('DOMContentLoaded', function() {
+            const iframe = document.getElementById('appFrame');
+            const loading = document.getElementById('loading');
             
-            if (window.innerWidth <= 768) {
-                container.style.height = `calc(${viewportHeight}px - ${headerHeight}px - 60px)`;
-            } else {
-                container.style.height = `calc(${viewportHeight}px - ${headerHeight}px - 80px)`;
-            }
-        }
-        
-        // Initialize and set up event listeners
-        window.addEventListener('resize', adjustIframeHeight);
-        window.addEventListener('load', function() {
-            adjustIframeHeight();
-            // Additional initialization can go here
-        });
-        
-        // Add smooth scrolling for better UX
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
+            iframe.onload = function() {
+                // Simulate a slight delay for a smoother transition
+                setTimeout(function() {
+                    loading.style.display = 'none';
+                    iframe.style.display = 'block';
+                }, 500);
+            };
+            
+            // Fallback: hide loading after 10 seconds
+            setTimeout(function() {
+                loading.style.display = 'none';
+                iframe.style.display = 'block';
+            }, 10000);
         });
     </script>
 </body>
