@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emes Cebete - MIN Singkawang</title>
+    <title>Emes Cebete - GAS Based Test</title>
     <link rel="icon" type="image/x-icon" href="https://i.imgur.com/fSgy6MI.png">
     <style>
         * {
@@ -13,64 +13,77 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: #ffffff;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 20px;
+            padding: 0;
+            color: #1a1a1a;
         }
         
         .header {
             text-align: center;
-            margin-bottom: 30px;
-            color: white;
+            margin: 40px 0 30px 0;
+            padding: 0 20px;
         }
         
         .logo {
-            width: 80px;
-            height: 80px;
-            margin-bottom: 15px;
-            border-radius: 50%;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            width: 70px;
+            height: 70px;
+            margin-bottom: 20px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
         
         .title {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #404040 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
         .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 5px;
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 4px;
+            font-weight: 400;
+        }
+        
+        .tagline {
+            font-size: 0.9rem;
+            color: #888;
+            margin-top: 8px;
         }
         
         .container {
             width: 100%;
-            max-width: 1200px;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            max-width: 1400px;
+            background: #fafafa;
+            border-radius: 0;
+            box-shadow: none;
             overflow: hidden;
-            margin-bottom: 20px;
+            margin-bottom: 0;
+            border-top: 1px solid #eaeaea;
         }
         
         .iframe-container {
             position: relative;
             width: 100%;
-            height: 80vh;
-            min-height: 600px;
+            height: 85vh;
+            min-height: 700px;
+            background: #fff;
         }
         
         .iframe-container iframe {
             width: 100%;
             height: 100%;
             border: none;
-            border-radius: 0 0 20px 20px;
+            border-radius: 0;
         }
         
         .loading {
@@ -80,53 +93,68 @@
             transform: translate(-50%, -50%);
             text-align: center;
             color: #666;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
         }
         
         .loading-spinner {
-            width: 40px;
-            height: 40px;
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #667eea;
+            width: 32px;
+            height: 32px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #1a1a1a;
             border-radius: 50%;
             animation: spin 1s linear infinite;
             margin: 0 auto 15px;
         }
         
-        .info-box {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 15px;
-            margin-top: 20px;
-            text-align: center;
-            border-left: 4px solid #667eea;
+        .info-section {
+            background: #fff;
+            padding: 40px 20px;
+            border-top: 1px solid #eaeaea;
         }
         
-        .features {
+        .info-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
-        .feature {
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        .info-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 4px solid #1a1a1a;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
         
-        .feature i {
-            font-size: 1.5rem;
-            color: #667eea;
-            margin-bottom: 8px;
+        .info-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+        }
+        
+        .info-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+        
+        .info-card p {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.5;
         }
         
         .footer {
             text-align: center;
-            color: white;
-            margin-top: 20px;
-            opacity: 0.8;
+            color: #888;
+            margin: 30px 0;
+            padding: 0 20px;
+            font-size: 0.85rem;
         }
         
         @keyframes spin {
@@ -135,9 +163,20 @@
         }
         
         /* Responsive Design */
+        @media (max-width: 1024px) {
+            .iframe-container {
+                height: 80vh;
+                min-height: 600px;
+            }
+        }
+        
         @media (max-width: 768px) {
+            .header {
+                margin: 30px 0 20px 0;
+            }
+            
             .title {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
             
             .subtitle {
@@ -145,86 +184,91 @@
             }
             
             .iframe-container {
-                height: 70vh;
+                height: 75vh;
                 min-height: 500px;
             }
             
-            .container {
-                border-radius: 15px;
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .info-section {
+                padding: 30px 15px;
             }
         }
         
         @media (max-width: 480px) {
-            body {
-                padding: 10px;
+            .header {
+                margin: 20px 0 15px 0;
             }
             
             .title {
-                font-size: 1.8rem;
+                font-size: 1.6rem;
+            }
+            
+            .logo {
+                width: 60px;
+                height: 60px;
             }
             
             .iframe-container {
-                height: 65vh;
+                height: 70vh;
                 min-height: 400px;
             }
             
-            .features {
-                grid-template-columns: 1fr;
+            .info-card {
+                padding: 20px;
             }
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <img src="https://i.imgur.com/fSgy6MI.png" alt="Emes Cebete Logo" class="logo">
+        <img src="https://i.imgur.com/fSgy6MI.png" alt="GAS Based Test Logo" class="logo">
         <h1 class="title">Emes Cebete</h1>
-        <p class="subtitle">Sistem Ujian Online - MIN Singkawang</p>
-        <p class="subtitle">Prestasi Penting | Jujur Lebih Utama</p>
+        <p class="subtitle">Google App Scripts Based Test</p>
+        <p class="tagline">Professional • Secure • Efficient</p>
     </div>
     
     <div class="container">
         <div class="iframe-container">
             <div class="loading">
                 <div class="loading-spinner"></div>
-                <p>Memuat aplikasi Emes Cebete...</p>
+                <p>Initializing Assessment System...</p>
             </div>
             <iframe 
                 src="https://script.google.com/macros/s/AKfycbxEJw6vFoqMda499-G9DRTFCohYRTGf76WtdPYtpq9eMbpcEiI_-NJSe_mChxh8pnjm/exec"
-                id="emesIframe"
+                id="assessmentIframe"
                 allow="camera; microphone; fullscreen"
                 onload="hideLoading()">
             </iframe>
         </div>
     </div>
     
-    <div class="info-box">
-        <h3>🎓 Fitur Emes Cebete</h3>
-        <div class="features">
-            <div class="feature">
-                <div>👨‍🏫</div>
-                <strong>Panel Guru</strong>
-                <p>Kelola soal, ujian, dan hasil</p>
+    <div class="info-section">
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>🎯 Advanced Assessment</h3>
+                <p>Sistem ujian digital dengan randomisasi soal dan opsi jawaban untuk memastikan integritas assessment.</p>
             </div>
-            <div class="feature">
-                <div>👨‍🎓</div>
-                <strong>Ujian Online</strong>
-                <p>Siswa dapat ujian dengan aman</p>
+            <div class="info-card">
+                <h3>📊 Real-time Analytics</h3>
+                <p>Monitor hasil assessment secara real-time dengan laporan detail dan analisis performa peserta.</p>
             </div>
-            <div class="feature">
-                <div>📊</div>
-                <strong>Analisis Hasil</strong>
-                <p>Laporan detail nilai ujian</p>
+            <div class="info-card">
+                <h3>🔐 Secure Platform</h3>
+                <p>Platform assessment yang aman dengan sistem timer, auto-submit, dan proteksi integritas ujian.</p>
             </div>
-            <div class="feature">
-                <div>🔒</div>
-                <strong>Sistem Aman</strong>
-                <p>Soal diacak, timer, auto-submit</p>
+            <div class="info-card">
+                <h3>📱 Multi-device Ready</h3>
+                <p>Akses assessment dari berbagai perangkat dengan interface yang optimal di desktop, tablet, dan mobile.</p>
             </div>
         </div>
     </div>
     
     <div class="footer">
-        <p>&copy; 2025 Emes Cebete - GAS Based Test | Developed by Mahfud Sidik</p>
+        <p>&copy; 2025 Emes Cebete | Developed by MAHFUD SIDIK</p>
     </div>
 
     <script>
@@ -236,39 +280,59 @@
         }
         
         // Handle iframe loading errors
-        document.getElementById('emesIframe').addEventListener('error', function() {
+        document.getElementById('assessmentIframe').addEventListener('error', function() {
             const loading = document.querySelector('.loading');
             if (loading) {
                 loading.innerHTML = `
-                    <div style="color: #e74c3c; font-size: 3rem;">⚠️</div>
-                    <p>Gagal memuat aplikasi. Silakan refresh halaman.</p>
+                    <div style="color: #dc2626; font-size: 2.5rem; margin-bottom: 15px;">⚠️</div>
+                    <h3 style="margin-bottom: 10px; color: #1a1a1a;">System Initialization Failed</h3>
+                    <p style="margin-bottom: 15px; color: #666;">Unable to load assessment system. Please try refreshing the page.</p>
                     <button onclick="window.location.reload()" style="
-                        background: #667eea;
+                        background: #1a1a1a;
                         color: white;
                         border: none;
-                        padding: 10px 20px;
-                        border-radius: 5px;
+                        padding: 10px 24px;
+                        border-radius: 6px;
                         cursor: pointer;
-                        margin-top: 10px;
-                    ">Refresh Halaman</button>
+                        font-size: 0.9rem;
+                        transition: background 0.2s ease;
+                    " onmouseover="this.style.background='#404040'" 
+                      onmouseout="this.style.background='#1a1a1a'">
+                        Retry Initialization
+                    </button>
                 `;
             }
         });
         
-        // Auto-adjust iframe height on mobile
+        // Auto-adjust iframe height based on viewport
         function adjustIframeHeight() {
-            const iframe = document.getElementById('emesIframe');
             const container = document.querySelector('.iframe-container');
+            const headerHeight = document.querySelector('.header').offsetHeight;
+            const viewportHeight = window.innerHeight;
             
             if (window.innerWidth <= 768) {
-                container.style.height = '70vh';
+                container.style.height = `calc(${viewportHeight}px - ${headerHeight}px - 60px)`;
             } else {
-                container.style.height = '80vh';
+                container.style.height = `calc(${viewportHeight}px - ${headerHeight}px - 80px)`;
             }
         }
         
+        // Initialize and set up event listeners
         window.addEventListener('resize', adjustIframeHeight);
-        window.addEventListener('load', adjustIframeHeight);
+        window.addEventListener('load', function() {
+            adjustIframeHeight();
+            // Additional initialization can go here
+        });
+        
+        // Add smooth scrolling for better UX
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
     </script>
 </body>
 </html>
